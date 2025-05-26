@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 定義全局變量 */
+:root {
+  --animation-duration: 0.3s;
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --background-color: #f8fafc;
+  --card-background: #ffffff;
+  --text-color: #334155;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+}
+
+/* 基礎動畫效果 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 全局樣式 */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
+/* 卡片效果 */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* 動畫類 */
+.animate-fade-in {
+  animation: fadeIn var(--animation-duration) ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp var(--animation-duration) ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown var(--animation-duration) ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.delayed-100 {
+  animation-delay: 0.1s;
+}
+
+.delayed-200 {
+  animation-delay: 0.2s;
+}
+
+.delayed-300 {
+  animation-delay: 0.3s;
+}
+
+/* 漸變效果 */
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary-color), #4f46e5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Emoji 漂浮動畫效果 */
+@keyframes float1 {
+  0%, 100% { 
+    transform: translate(-50%, -50%) translateY(0px) rotate(0deg);
+  }
+  25% { 
+    transform: translate(-50%, -50%) translateY(-3px) rotate(1deg);
+  }
+  50% { 
+    transform: translate(-50%, -50%) translateY(-6px) rotate(0deg);
+  }
+  75% { 
+    transform: translate(-50%, -50%) translateY(-3px) rotate(-1deg);
+  }
+}
+
+@keyframes float2 {
+  0%, 100% { 
+    transform: translate(-50%, -50%) translateY(0px) rotate(0deg);
+  }
+  33% { 
+    transform: translate(-50%, -50%) translateY(-4px) rotate(-1deg);
+  }
+  66% { 
+    transform: translate(-50%, -50%) translateY(-2px) rotate(1deg);
+  }
+}
+
+@keyframes float3 {
+  0%, 100% { 
+    transform: translate(-50%, -50%) translateY(0px) rotate(0deg);
+  }
+  20% { 
+    transform: translate(-50%, -50%) translateY(-2px) rotate(0.5deg);
+  }
+  40% { 
+    transform: translate(-50%, -50%) translateY(-5px) rotate(-0.5deg);
+  }
+  60% { 
+    transform: translate(-50%, -50%) translateY(-3px) rotate(0.5deg);
+  }
+  80% { 
+    transform: translate(-50%, -50%) translateY(-1px) rotate(0deg);
+  }
+}
+
+@keyframes floatBounce {
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1) translateY(0px);
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.05) translateY(-4px);
+  }
+}
+
+.animate-float-1 {
+  animation: float1 4s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float2 3.5s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: float3 4.5s ease-in-out infinite;
+}
+
+.animate-float-bounce {
+  animation: floatBounce 3s ease-in-out infinite;
+}
+
+/* 自定義滾動條 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+:root {
+      --background: 0 0% 100%;
+--foreground: 20 14.3% 4.1%;
+--muted: 60 4.8% 95.9%;
+--muted-foreground: 25 5.3% 44.7%;
+--popover: 0 0% 100%;
+--popover-foreground: 20 14.3% 4.1%;
+--card: 0 0% 100%;
+--card-foreground: 20 14.3% 4.1%;
+--border: 20 5.9% 90%;
+--input: 20 5.9% 90%;
+--primary: 207 90% 54%;
+--primary-foreground: 211 100% 99%;
+--secondary: 60 4.8% 95.9%;
+--secondary-foreground: 24 9.8% 10%;
+--accent: 60 4.8% 95.9%;
+--accent-foreground: 24 9.8% 10%;
+--destructive: 0 84.2% 60.2%;
+--destructive-foreground: 60 9.1% 97.8%;
+--ring: 20 14.3% 4.1%;
+--radius: 0.5rem;
+  }
+  .dark {
+      --background: 240 10% 3.9%;
+--foreground: 0 0% 98%;
+--muted: 240 3.7% 15.9%;
+--muted-foreground: 240 5% 64.9%;
+--popover: 240 10% 3.9%;
+--popover-foreground: 0 0% 98%;
+--card: 240 10% 3.9%;
+--card-foreground: 0 0% 98%;
+--border: 240 3.7% 15.9%;
+--input: 240 3.7% 15.9%;
+--primary: 207 90% 54%;
+--primary-foreground: 211 100% 99%;
+--secondary: 240 3.7% 15.9%;
+--secondary-foreground: 0 0% 98%;
+--accent: 240 3.7% 15.9%;
+--accent-foreground: 0 0% 98%;
+--destructive: 0 62.8% 30.6%;
+--destructive-foreground: 0 0% 98%;
+--ring: 240 4.9% 83.9%;
+--radius: 0.5rem;
+  }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
